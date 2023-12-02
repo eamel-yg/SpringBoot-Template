@@ -14,7 +14,6 @@ public class SpringRestFulApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringRestFulApplication.class, args);
-        System.out.println("哈哈");
     }
 
 }
