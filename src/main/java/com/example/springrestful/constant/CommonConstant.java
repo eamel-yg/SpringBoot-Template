@@ -1,9 +1,11 @@
 package com.example.springrestful.constant;
 
+
 /**
- * 通用常量
+ * 公共常数
  *
- * @author yupi
+ * @author 张三丰
+ * @date 2023/12/02
  */
 public interface CommonConstant {
 

@@ -5,10 +5,12 @@ import lombok.Data;
 import java.io.Serializable;
 import java.util.Date;
 
+
 /**
- * 用户视图
+ * 用户vo
  *
- * @TableName user
+ * @author 张三丰
+ * @date 2023/12/02
  */
 @Data
 public class UserVO implements Serializable {

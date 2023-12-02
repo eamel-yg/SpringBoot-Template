@@ -17,7 +17,9 @@ import java.nio.file.AccessDeniedException;
 import java.rmi.AccessException;
 import java.rmi.ServerException;
 
-/** 统一异常处理器
+/**
+ * 全局异常处理程序 统一异常处理器
+ *
  * @author 张三丰
  * @date 2023/11/15
  */

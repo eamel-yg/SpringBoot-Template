@@ -4,7 +4,7 @@ package com.example.springrestful.resp;
 import lombok.Data;
 
 /**
- * 返回结果集
+ * 响应结果
  * @author 张三丰
  * @date 2023/11/15
  */
@@ -78,6 +78,23 @@ public class ResponseResult<T> {
         return responseResult;
     }
 
+//    /**
+//     * 全参数方法
+//     * @param code    状态码
+//     * @param success  状态
+//     * @param message 返回信息
+//     * @param <T>     泛型
+//     * @return {@link ResponseResult<T>}
+//     */
+//    public static <T>ResponseResult<T> response(Integer code, Boolean success, String message, T data){
+//        ResponseResult<T> responseResult = new ResponseResult<>();
+//        responseResult.setCode(code);
+//        responseResult.setSuccess(success);
+//        responseResult.setMessage(message);
+//        responseResult.setData(data);
+//        return responseResult;
+//    }
+
     /**
      * 全参数方法
      * @param code    状态码
@@ -110,7 +127,6 @@ public class ResponseResult<T> {
         responseResult.setErrMsg(errMsg);
         return responseResult;
     }
-
 
     /**
      * 全参数方法
@@ -212,6 +228,9 @@ public class ResponseResult<T> {
      */
     public static <T> ResponseResult<T> success(String message) {
         return response(ResultCodeEnum.SUCCESS.getCode(), true, message, null);
+    }
+    public static <T> ResponseResult<T> success(Boolean success,String message) {
+        return response(ResultCodeEnum.SUCCESS.getCode(), success, message);
     }
 
     /**

@@ -6,9 +6,12 @@ import com.example.springrestful.domain.User;
 import javax.servlet.http.HttpServletRequest;
 
 /**
-* @author 86151
-* &#064;description  针对表【User】的数据库操作Service
-* &#064;createDate  2023-11-15 16:06:07
+ * 用户服务
+ *
+ * @author 86151
+ * &#064;description  针对表【User】的数据库操作Service
+ * &#064;createDate  2023-11-15 16:06:07
+ * @date 2023/12/02
  */
 public interface UserService extends IService<User> {
 

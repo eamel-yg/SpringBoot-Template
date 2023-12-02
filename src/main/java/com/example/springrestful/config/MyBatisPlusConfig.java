@@ -8,9 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ *
  * MyBatis Plus 配置
  *
- * @author yupi
+ * @author 张三丰
+ * @date 2023/12/02
  */
 @Configuration
 @MapperScan("com.yupi.project.mapper")

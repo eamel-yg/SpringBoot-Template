@@ -4,6 +4,13 @@ import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
+
+/**
+ * 结果：结果实用程序
+ *
+ * @author 张三丰
+ * @date 2023/12/02
+ */
 @Data
 public class ResultUtils {
     private Boolean success;

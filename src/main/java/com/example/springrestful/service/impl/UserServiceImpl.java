@@ -154,6 +154,13 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User>
         return safetyUser;
     }
 
+    /**
+     * 获取登录用户
+     *
+     * @param request 要求
+     * @return {@code User }
+     * @author 张三丰
+     */
     @Override
     public User getLoginUser(HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");

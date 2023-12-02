@@ -2,9 +2,12 @@ package com.example.springrestful.annotation;
 
 import java.lang.annotation.*;
 
+
 /**
+ * 身份验证检查
+ *
  * @author 张三丰
- * @date 2023/11/30
+ * @date 2023/12/02
  */
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)

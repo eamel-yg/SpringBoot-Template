@@ -12,13 +12,10 @@ import com.example.springrestful.domain.vo.UserVO;
 import com.example.springrestful.exception.BusinessException;
 import com.example.springrestful.resp.ResponseResult;
 import com.example.springrestful.resp.ResultCodeEnum;
-import com.example.springrestful.resp.ResultUtils;
 import com.example.springrestful.service.UserService;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -108,7 +105,7 @@ public class UserController {
     public ResponseResult<Boolean>userLogOut(HttpServletRequest request){
         Boolean result = userService.userLogOut(request);
         request.getSession().removeAttribute(UserConstant.DEFAULT_ROLE);
-        return ResponseResult.success();
+        return ResponseResult.success(result,"退出登录");
     }
 
 
@@ -132,7 +129,7 @@ public class UserController {
         if(!save){
             throw new BusinessException(ResultCodeEnum.INTERNAL_SERVER_ERROR);
         }
-        return ResponseResult.success(user.getId());
+        return ResponseResult.success("创建成功",user.getId());
     }
 
     /**
@@ -144,7 +141,7 @@ public class UserController {
      */
     @PostMapping("/deleteUser")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public ResponseResult<Boolean>deleteUser(@RequestBody DeleteRequest deleteRequest){
+    public ResponseResult<Boolean> deleteUser(@RequestBody DeleteRequest deleteRequest){
         if(deleteRequest==null){
             throw new BusinessException(ResultCodeEnum.PARAMS_NULL);
         }
@@ -152,7 +149,7 @@ public class UserController {
         if(!result){
             throw new BusinessException(ResultCodeEnum.INTERNAL_SERVER_ERROR);
         }
-        return ResponseResult.success(true);
+        return ResponseResult.success(true,"删除成功");
     }
 
     /**
@@ -164,7 +161,7 @@ public class UserController {
      */
     @PostMapping("/updateUser")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
-    public ResponseResult<Boolean>updateUser(@RequestBody UserUpdateRequest userUpdateRequest){
+    public ResponseResult<Boolean> updateUser(@RequestBody UserUpdateRequest userUpdateRequest){
         if(userUpdateRequest==null){
             throw new BusinessException(ResultCodeEnum.PARAMS_NULL);
         }
@@ -174,7 +171,7 @@ public class UserController {
         if(!result){
             throw new BusinessException(ResultCodeEnum.INTERNAL_SERVER_ERROR);
         }
-        return ResponseResult.success();
+        return ResponseResult.success(true,"更新成功");
     }
 
     /**

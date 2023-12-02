@@ -3,10 +3,12 @@ package com.example.springrestful.common;
 import com.example.springrestful.constant.CommonConstant;
 import lombok.Data;
 
+
 /**
- * 分页请求
+ * 页面请求
  *
- * @author yupi
+ * @author 张三丰
+ * @date 2023/12/02
  */
 @Data
 public class PageRequest {

@@ -4,10 +4,12 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+
 /**
- * 用户注册请求体
+ * 用户注册请求
  *
- * @author yupi
+ * @author 张三丰
+ * @date 2023/12/02
  */
 @Data
 public class UserRegisterRequest implements Serializable {

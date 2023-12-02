@@ -7,10 +7,12 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 import java.util.Date;
 
+
 /**
  * 用户查询请求
  *
- * @author yupi
+ * @author 张三丰
+ * @date 2023/12/02
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

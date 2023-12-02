@@ -1,9 +1,11 @@
 package com.example.springrestful.constant;
 
+
 /**
- * 用户常量
+ * 用户常数
  *
- * @author yupi
+ * @author 张三丰
+ * @date 2023/12/02
  */
 public interface UserConstant {
 

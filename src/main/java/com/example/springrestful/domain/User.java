@@ -8,9 +8,12 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
+
 /**
  * 用户
- * @TableName user
+ *
+ * @author 张三丰
+ * @date 2023/12/02
  */
 @TableName(value ="user")
 @Data

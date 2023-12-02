@@ -3,6 +3,12 @@ package com.example.springrestful.exception;
 import com.example.springrestful.resp.ResultCodeEnum;
 import lombok.Data;
 
+/**
+ * 业务异常
+ *
+ * @author 张三丰
+ * @date 2023/12/02
+ */
 @Data
 public class BusinessException extends RuntimeException{
     private Integer code;

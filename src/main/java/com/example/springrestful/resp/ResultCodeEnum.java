@@ -1,5 +1,11 @@
 package com.example.springrestful.resp;
 
+/**
+ * 结果代码枚举
+ *
+ * @author 张三丰
+ * @date 2023/12/02
+ */
 public enum ResultCodeEnum {
     SUCCESS(true,200,"成功"),
     FAIL(false,400,"失败"),
