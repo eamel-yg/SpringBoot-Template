@@ -2,17 +2,15 @@ package com.example.springrestful.service.impl;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.crypto.digest.DigestUtil;
-import cn.hutool.http.HttpResponse;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.springrestful.constant.UserConstant;
 import com.example.springrestful.domain.User;
-import com.example.springrestful.domain.vo.UserVO;
 import com.example.springrestful.exception.BusinessException;
 import com.example.springrestful.mapper.UserMapper;
 import com.example.springrestful.resp.ResultCodeEnum;
 import com.example.springrestful.service.UserService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -22,13 +20,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static com.example.springrestful.constant.UserConstant.USER_LOGIN_STATE;
-import static com.sun.javafx.font.FontResource.SALT;
+
 
 /**
-* @author zhan
-* @description 针对表【User】的数据库操作Service实现
-* @createDate 2023-11-15 16:06:07
-*/
+ * 用户服务impl
+ *
+ * @author 张三丰
+ * @date 2023/12/02
+ */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper,User>
         implements UserService {
@@ -150,10 +149,37 @@ public class UserServiceImpl extends ServiceImpl<UserMapper,User>
 //        UserVO userVO = safetyUser(user);
         User safetyUser = getSafetyUser(user);
         //todo 4. 记录用户的登录态
-        request.getSession().setAttribute(USER_LOGIN_STATE, safetyUser);
+        request.getSession().setAttribute(UserConstant.DEFAULT_ROLE, safetyUser);
         //todo 5.返回
         return safetyUser;
     }
+
+    @Override
+    public User getLoginUser(HttpServletRequest request) {
+        User user = (User) request.getSession().getAttribute("user");
+        if(user==null){
+            throw new BusinessException(ResultCodeEnum.NOT_LOGIN);
+        }
+        return user;
+    }
+
+    /**
+     * 用户注销
+     *
+     * @param request 要求
+     * @return {@code Boolean }
+     * @author 张三丰
+     */
+    @Override
+    public Boolean userLogOut(HttpServletRequest request) {
+        User loginUser = getLoginUser(request);
+        if(loginUser==null){
+            throw new BusinessException(ResultCodeEnum.NOT_LOGIN);
+        }
+        request.getSession().removeAttribute(UserConstant.DEFAULT_ROLE);
+        return true;
+    }
+
     public User getSafetyUser(User user) {
         if (user == null) {
             throw new BusinessException(ResultCodeEnum.NULL_ERROR, "账户为空");

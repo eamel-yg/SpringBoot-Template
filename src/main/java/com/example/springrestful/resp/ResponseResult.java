@@ -272,9 +272,6 @@ public class ResponseResult<T> {
     }
 
     /** 失败返回(状态码+返回信息+错误信息)
-     * @param code
-     * @param message
-     * @param errMsg
      * @return {@link ResponseResult}<{@link T}>
      */
     public static <T> ResponseResult<T> fail(Integer code, String message, String errMsg) {
@@ -341,7 +338,7 @@ public class ResponseResult<T> {
     }
 
     // 自定义返回结果
-    public ResponseResult<T> success(Boolean success) {
+    public  ResponseResult isSuccess(Boolean success) {
         return this.setSuccess(success);
     }
 
