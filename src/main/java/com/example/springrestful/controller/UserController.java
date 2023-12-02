@@ -184,7 +184,7 @@ public class UserController {
     @GetMapping("/get")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)
     public ResponseResult<UserVO> getUserById(Long id){
-        if(id<=0||id==null){
+        if(id<=0){
             throw new BusinessException(ResultCodeEnum.PARAM_ERROR);
         }
         User user = userService.getById(id);
